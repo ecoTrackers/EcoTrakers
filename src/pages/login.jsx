@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CustomInput from "../components/form/CustomInput";
 import ButtonClose from "../components/form/buttonClose";
 import TitleForm from "../components/form/TitleForm";
@@ -11,11 +12,11 @@ function Login() {
         <div className="d-flex justify-content-center align-items-center bg-secondary-subtle vh-100">
             <main className="bg-light rounded border-0">
                 <div className="border-opacity-50 shadow-lg rounded px-5 py-4">
-                    <a 
-                        href="/index.html" 
+                   {/* <Link 
+                        to="pages/index" 
                         className="d-flex justify-content-end">
                         <ButtonClose />
-                    </a>
+                    </Link> */}
                     
                     <TitleForm 
                         text="Iniciar Sesión en EcoTracker"
@@ -41,11 +42,11 @@ function Login() {
                                     htmlFor="password">
                                     Contraseña
                                 </label>
-                                <a 
-                                    href="/login/forgot-password.html"
+                                <Link 
+                                    to="/pages/forgotPassword"
                                     className="text-end fw-light text-decoration-none d-flex justify-content-end">
                                     ¿Olvidaste tu contraseña?
-                                </a> 
+                                </Link>
                             </div>  
                             <div className="d-block">
                                 <CustomInput 
@@ -90,11 +91,11 @@ function Login() {
                             className="fw-light fs-6">
                             ¿No tienes una cuenta?
                         </h3>        
-                        <a 
-                            href="/logup/logup.html" 
+                        {/*<link 
+                            to="logup" 
                             className="fw-light fs-6 ms-1 ps-1 text-decoration-none">
                             Regístrate
-                        </a>
+                        </link>*/}
                     </div>
                 </div>
             </main>
