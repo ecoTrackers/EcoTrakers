@@ -4,7 +4,7 @@ function ButtonGreen(props) {
     return (
         <button 
             type={props.type}
-            className="btn btn-success mw-100 rounded-pill border border-opacity-75" 
+            className="btn btn-success mw-100 rounded-pill" 
             style={{width: "200%"}}>
             {props.text}
         </button>
