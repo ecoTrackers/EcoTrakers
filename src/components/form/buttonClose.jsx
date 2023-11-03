@@ -1,12 +1,17 @@
 import React from "react";
 
-function ButtonClose() {
+function ButtonClose(props) {
     return (
-        <button 
-            type="button" 
-            className="btn-close"  
-            aria-label="Close">
-        </button>
+        <a 
+            href="/pages/index" 
+            className="d-flex justify-content-end">
+            <button 
+                type="button" 
+                className="btn-close"  
+                aria-label="Close">
+            </button>
+        </a>
+        
     );
 }
 

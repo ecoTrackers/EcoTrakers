@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import CustomInput from "../components/form/CustomInput";
 import ButtonClose from "../components/form/buttonClose";
 import TitleForm from "../components/form/TitleForm";
@@ -12,12 +11,9 @@ function Login() {
         <div className="d-flex justify-content-center align-items-center bg-secondary-subtle vh-100">
             <main className="bg-light rounded border-0">
                 <div className="border-opacity-50 shadow-lg rounded px-5 py-4">
-                   {/* <Link 
-                        to="pages/index" 
-                        className="d-flex justify-content-end">
-                        <ButtonClose />
-                    </Link> */}
-                    
+
+                    <ButtonClose />
+                                            
                     <TitleForm 
                         text="Iniciar Sesión en EcoTracker"
                     />
@@ -34,7 +30,7 @@ function Login() {
                                 name="email" 
                                 id="email" 
                                 placeholder="ejemplo@correo.com"
-                                />
+                            />
                         </div> 
                         <div className="fw-medium pb-2">
                             <div className="d-flex justify-content-between pb-2">
@@ -42,18 +38,18 @@ function Login() {
                                     htmlFor="password">
                                     Contraseña
                                 </label>
-                                <Link 
-                                    to="/pages/forgotPassword"
+                                <a 
+                                    href="/pages/forgotPassword"
                                     className="text-end fw-light text-decoration-none d-flex justify-content-end">
                                     ¿Olvidaste tu contraseña?
-                                </Link>
+                                </a>
                             </div>  
                             <div className="d-block">
                                 <CustomInput 
                                     type="password" 
                                     id="password" 
                                     placeholder="********" 
-                                    />
+                                />
                             </div>
                         </div>
                         <div className="py-2 fs-6 fw-lighter form-check form-switch">
@@ -63,7 +59,8 @@ function Login() {
                                 role="switch" 
                                 name="rememberMe" 
                                 id="rememberMe" 
-                                className="form-check-input border-success-subtle bg-success" />
+                                className="form-check-input border-success-subtle bg-success" 
+                            />
                             <label 
                                 htmlFor="rememberMe">
                                 Recordarme
@@ -81,7 +78,7 @@ function Login() {
                     <div className="mt-3 pt-2">
                         <ButtonWhite 
                             type="button" 
-                            text="Inicia sesión con Google"
+                            text="Iniciar sesión con Google"
                         />
                         
                     </div>    
@@ -91,11 +88,11 @@ function Login() {
                             className="fw-light fs-6">
                             ¿No tienes una cuenta?
                         </h3>        
-                        {/*<link 
-                            to="logup" 
+                        <a 
+                            href="/pages/logup" 
                             className="fw-light fs-6 ms-1 ps-1 text-decoration-none">
                             Regístrate
-                        </link>*/}
+                        </a>
                     </div>
                 </div>
             </main>
