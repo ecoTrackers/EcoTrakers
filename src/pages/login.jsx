@@ -39,7 +39,7 @@ function Login() {
                                     Contraseña
                                 </label>
                                 <a 
-                                    href="/pages/forgotPassword"
+                                    href="/forgotPassword"
                                     className="text-end fw-light text-decoration-none d-flex justify-content-end">
                                     ¿Olvidaste tu contraseña?
                                 </a>
@@ -89,7 +89,7 @@ function Login() {
                             ¿No tienes una cuenta?
                         </h3>        
                         <a 
-                            href="/pages/logup" 
+                            href="/logup" 
                             className="fw-light fs-6 ms-1 ps-1 text-decoration-none">
                             Regístrate
                         </a>

@@ -114,7 +114,7 @@ function Logup() {
                     <div className="d-flex justify-content-start mt-2">
                         <h3 className="fw-light fs-6 ">¿Ya tienes una cuenta?</h3>        
                         <a 
-                            href="/pages/login" 
+                            href="/login" 
                             className=" fw-light fs-6 ms-1 ps-1 text-decoration-none">
                             Iniciar sesión
                         </a>

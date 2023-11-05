@@ -1,10 +1,12 @@
 import React from "react";
 import Footer from "../components/footer/footer";
 import SectionIndex from "../components/sectionIndex";
+import CustomNav from "../components/NAV/CustomNav";
 
 function Index (){
     return (
         <div>
+            <CustomNav />
             <section className="container">
                 <div className="row">
                     <SectionIndex 
