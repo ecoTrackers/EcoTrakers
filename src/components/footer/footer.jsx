@@ -7,7 +7,7 @@ import CustomPFooter from "./CustomPfooter";
 function Footer () {
     return (
         <div>
-             <footer className="bg-dark text-white p-4">
+             <footer id="contactanos" className="bg-dark text-white p-4">
                 <div className="container">
                     <div className="row">
                         

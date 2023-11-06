@@ -6,12 +6,75 @@ import CarruselNuevos from "../components/cards/carruselNuevos";
 import CarruselCompras from "../components/cards/carruselCompras";
 import CarruselUltimo from "../components/cards/carruselUltimo";
 import CarruselPromociones from "../components/cards/carruselPromociones";
+import LinkSection from "../components/cards/linkSection";
+import Search from "../components/homeHeader/search";
+import Hamburger from "../components/NAV/hamburger";
+import IndexLiSM from "../components/NAV/IndexLiSM";
 
 
 function Home (){
     return (
         <div>
-            <div class="header_home ">
+            <div className="header_home" style={{background: "linear-gradient(to right, #198754, #96dfbd)"}}>
+                <header className="navbar navbar-expand-sm d-flex justify-content-between align-items-center">
+                    <h1 className="text-sm-start m-4 text-white fw-bold fs-1">Eco Trackers</h1>
+
+                    <Search/> 
+
+                    <Hamburger />
+
+                    <nav className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                        <ul className="navbar-nav">
+                            <li className="nav-item d-none d-sm-block">
+                                <a className="nav-link text-white " href="/cart"> <i className ="fas fa-shopping-cart fa-lg me-2" ></i></a>
+                            </li>
+                            <li className="nav-item dropdown d-none d-sm-block">
+                                <a className="nav-link dropdown-toggle text-white" href="/home" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i className="fas fa-user fa-lg me-2"></i>
+                                </a>
+                                <div className="dropdown-menu border-success-subtle border-3" aria-labelledby="navbarDropdown"  style={{ left: 'auto', right: 0 }}>
+                                    <a className="dropdown-header text-decoration-none fs-4 fw-semibold" href="/home">Perfil</a>
+                                    <a className="dropdown-item fw-light fs-6" href="/home">Historial de compras</a>
+                                    <a className="dropdown-item fw-light fs-6" href="/home">Configuración</a>
+                                    <div className="dropdown-divider"></div>
+                                    <a className="dropdown-item fw-light fs-6" href="/">Cerrar sesión</a>
+                                </div>
+                            </li>
+
+                            <IndexLiSM href="/cart" text="Tu carrito"/>
+                            <hr className="d-block d-sm-none"/>
+                            <IndexLiSM href="/home" text="Historial de compras"/>
+                            <IndexLiSM href="/home" text="Configuración"/>
+                            <hr className="d-block d-sm-none"/>
+                            <IndexLiSM href="/" text="Cerrar sesión"/>
+                        </ul>
+                    </nav>
+
+
+                </header>
+
+                <section className="container text-center pb-3">
+                    <div className="row flex-nowrap" style={{ overflowX: "auto" }}>
+                        <LinkSection 
+                        href="#Promociones"
+                        text="Promociones"/>
+                        <LinkSection 
+                        href="#lo_ultimo"
+                        text="Lo ultimo que viste"/>
+                        <LinkSection 
+                        href="#compras"
+                        text="Según tus comprar"/>
+                        <LinkSection 
+                        href="#nuevos"
+                        text="Nuevos productos"/>
+                        <LinkSection 
+                        href="#vendidos"
+                        text="Más vendidos"/>
+                        <LinkSection 
+                        href="#contactanos"
+                        text="Contáctanos"/>
+                    </div>
+                </section>
             </div>
             
             <section id="promociones" className="container bg-secondary bg-opacity-50 w-100 m-0 py-3" style={{ maxWidth: 'none' }}>
@@ -34,9 +97,9 @@ function Home (){
 
             </section>
             
-            <section id="compras" class="container bg-secondary bg-opacity-50" style={{ maxWidth: 'none' }}>
-                <div class="text-center">
-                    <h2 class="pt-3">Según tus compras </h2>
+            <section id="compras" className="container bg-secondary bg-opacity-50" style={{ maxWidth: 'none' }}>
+                <div className="text-center">
+                    <h2 className="pt-3">Según tus compras </h2>
                     <p>"¡Eres único(a)! Basándonos en tus compras anteriores, te presentamos una selección especial de productos que creemos que te encantarán. 
                     </p>
                 </div>

@@ -5,7 +5,7 @@ function ListGroupNuevos() {
     
     return (
         <div className="col-md-3 mb-4 mt-5">
-            <nav id="sidebar" className="">
+            <nav id="sidebar" >
                 <div className="list-group">
                     <AGroupNuevos
                         num="0"

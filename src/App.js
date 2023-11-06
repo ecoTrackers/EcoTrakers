@@ -8,6 +8,7 @@ import Login from './pages/login';
 import ForgotPassword from './pages/forgotPassword';
 import Logup from "./pages/logup";
 import Home from "./pages/home";
+import ShoppingCart from "./pages/ShoppingCart";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/logup" element={<Logup />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/Cart" element={<ShoppingCart />} />
           {/* Otras rutas */}
         </Routes>
       </Router>

@@ -6,15 +6,15 @@ function CarruselCompras() {
 
     return (
 
-        <div class=" row justify-content-between d-flex align-items-center">
+        <div className=" row justify-content-between d-flex align-items-center">
                 
                 <ProductLarge
                 num="5"
                 name="prueba5"
                 cost="$49.999"/>
         
-            <div class="col">
-                <div class="row d-flex justify-content-evenly pb-3">
+            <div className="col">
+                <div className="row d-flex justify-content-evenly pb-3">
                     <ProductSmall
                         num="1"
                         name="prueba1"
@@ -24,7 +24,7 @@ function CarruselCompras() {
                         name="prueba2"
                         cost="$59.999"/>
                 </div>
-                <div class="row d-flex justify-content-evenly pb-3">
+                <div className="row d-flex justify-content-evenly pb-3">
                     <ProductSmall
                         num="3"
                         name="prueba3"

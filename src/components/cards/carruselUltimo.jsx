@@ -16,12 +16,16 @@ function CarruselUltimo() {
                 name="prueba1"
                 cost="$59.999"/>
             <ProductSmall
-                num="2"
-                name="prueba2"
+                num="5"
+                name="prueba5"
                 cost="$49.999"/>
             <ProductSmall
-                num="2"
-                name="prueba2"
+                num="6"
+                name="prueba6"
+                cost="$49.999"/>
+            <ProductSmall
+                num="4"
+                name="prueba4"
                 cost="$59.999"/>                
             <ProductSmall
                 num="3"
@@ -31,6 +35,10 @@ function CarruselUltimo() {
                 num="3"
                 name="prueba3"
                 cost="$59.999"/>
+             <ProductSmall
+                num="2"
+                name="prueba2"
+                cost="$59.999"/> 
         </div>
     
     );
