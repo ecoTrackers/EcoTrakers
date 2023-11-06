@@ -4,12 +4,12 @@ import ProductSmall from "./productSmall";
 function CarruselVendidos() {
 
     return (
-        <div id="carouselVendidos" className="carousel slide" data-ride="carousel">
+        <div id="carouselVendidos" className="carousel slide " data-ride="carousel">
 
             <div className="carousel-inner">
 
                 <div className="carousel-item active px-5">
-                    <div className="row">                    
+                    <div className="d-flex flex-wrap justify-content-around">                    
                         <ProductSmall
                         num="1"
                         name="prueba1"
@@ -18,7 +18,6 @@ function CarruselVendidos() {
                         num="2"
                         name="prueba3"
                         cost="$59.999"/>
-
                         <ProductSmall
                         num="3"
                         name="prueba3"
@@ -27,7 +26,7 @@ function CarruselVendidos() {
                 </div>
                 
                 <div className="carousel-item px-5">
-                    <div className="row"> 
+                    <div className="d-flex flex-wrap justify-content-around"> 
                         <ProductSmall
                         num="4"
                         name="prueba4"

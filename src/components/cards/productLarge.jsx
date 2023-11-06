@@ -1,20 +1,14 @@
 import React from "react";
 
-function ProductSmall(props) {
-
-    const imageStyle = {
-        maxWidth: "100%",
-        height: "200px"
-    };
+function ProductLarge(props) {
 
     return (
-        <div className="col-lg-4 col-md-4 " style={{width: "300px"}}>
-            <div className="card ">
+        <div className="col-12 col-md-6 col-lg-4 ms-1 mb-5">
+            <div className="card">
                 <img 
-                    className="img-fluid rounded"
+                    className="card-img-top img-fluid"
                     src={require(`../../img/Product/${props.num}.jpeg`)} 
-                    alt={`Product${props.num}`}
-                    style={imageStyle}
+                    alt={`Product${props.num}`}img-fluid
                 />
                  <div className="card-body">
                     <div className="d-flex justify-content-between align-items-start">
@@ -32,4 +26,4 @@ function ProductSmall(props) {
     );
 }
 
-export default ProductSmall;
+export default ProductLarge;
