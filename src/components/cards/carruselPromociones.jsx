@@ -1,7 +1,7 @@
 import React from "react";
 import ProductSmall from "./productSmall";
 
-function CarruselPromociones() {
+function CarruselPromociones({onAddToCart}) {
 
     return (
         <div id="carouselpromociones" className="carousel slide " data-ride="carousel">
@@ -20,15 +20,18 @@ function CarruselPromociones() {
                         <ProductSmall
                         num="1"
                         name="prueba1"
-                        cost="$49.999"/>
+                        cost="$49.999"
+                        onAddToCart={onAddToCart}/>
                         <ProductSmall
                         num="2"
                         name="prueba3"
-                        cost="$59.999"/>
+                        cost="$59.999"
+                        onAddToCart={onAddToCart}/>
                         <ProductSmall
                         num="3"
                         name="prueba3"
-                        cost="$60.999"/>
+                        cost="$60.999"
+                        onAddToCart={onAddToCart}/>
                     </div>
                 </div>
                 
@@ -37,17 +40,20 @@ function CarruselPromociones() {
                         <ProductSmall
                         num="4"
                         name="prueba4"
-                        cost="$49.999"/>
+                        cost="$49.999"
+                        onAddToCart={onAddToCart}/>
 
                         <ProductSmall
                         num="5"
                         name="prueba5"
-                        cost="$59.999"/>
+                        cost="$59.999"
+                        onAddToCart={onAddToCart}/>
 
                         <ProductSmall
                         num="6"
                         name="prueba6"
-                        cost="$60.999"/>                  
+                        cost="$60.999"
+                        onAddToCart={onAddToCart}/>
                         
                     </div>
                 </div>
@@ -57,17 +63,20 @@ function CarruselPromociones() {
                         <ProductSmall
                         num="2"
                         name="prueba2"
-                        cost="$49.999"/>
+                        cost="$49.999"
+                        onAddToCart={onAddToCart}/>
 
                         <ProductSmall
                         num="4"
                         name="prueba4"
-                        cost="$59.999"/>
+                        cost="$59.999"
+                        onAddToCart={onAddToCart}/>
 
                         <ProductSmall
                         num="1"
                         name="prueba1"
-                        cost="$60.999"/>                  
+                        cost="$60.999"
+                        onAddToCart={onAddToCart}/>                  
                         
                     </div>
                 </div>

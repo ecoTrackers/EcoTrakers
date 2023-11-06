@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState }  from "react";
 
 function ProductSmall(props) {
+
+    const [quantity, setQuantity] = useState(0);
+
+    const addToCart = () => {
+        setQuantity(quantity + 1);
+        props.onAddToCart();
+    };
+
 
     const imageStyle = {
         maxWidth: "100%",
         height: "200px"
+    };
+
+    const [cardBodyStyle, setCardBodyStyle] = useState({}); 
+
+    const handleMouseEnter = () => {
+        const newCardBodyStyle = { ...cardBodyStyle, cursor: "pointer" };
+        setCardBodyStyle(newCardBodyStyle);
     };
 
     return (
@@ -16,14 +31,14 @@ function ProductSmall(props) {
                     alt={`Product${props.num}`}
                     style={imageStyle}
                 />
-                 <div className="card-body">
+                 <div className="card-body" style={cardBodyStyle} onMouseEnter={handleMouseEnter} onClick={addToCart}>
                     <div className="d-flex justify-content-between align-items-start">
                         <div>
                             <h5 className="card-title">{props.name}</h5>
                             <p className="card-text">{props.cost}</p>
                         </div>
                         <div>
-                            <a href="/" className="btn btn-primary">Añadir</a>
+                            <button  className="btn btn-primary">Añadir</button>
                         </div>
                     </div>
                 </div>
