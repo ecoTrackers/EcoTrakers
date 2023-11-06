@@ -12,10 +12,10 @@ function Logup() {
         event.preventDefault(); 
         
         if (validateLogup()) { 
-            navigate('/')
+            navigate('/home')
         }
     };
-    
+
     return (
         <div className=" d-flex justify-content-center align-items-center bg-secondary-subtle vh-100">
             <main className="bg-light rounded border-0">

@@ -15,9 +15,9 @@ function Login() {
         event.preventDefault(); 
                 
         if (validateLogin()) { 
-            navigate('/')
-            }
-        };
+            navigate('/home')
+        }
+    };
 
     return (
         <div className="d-flex justify-content-center align-items-center bg-secondary-subtle vh-100">

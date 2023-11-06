@@ -7,6 +7,7 @@ import Index from './pages/index';
 import Login from './pages/login';
 import ForgotPassword from './pages/forgotPassword';
 import Logup from "./pages/logup";
+import Home from "./pages/home";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/logup" element={<Logup />} />
+          <Route path="/home" element={<Home />} />
           {/* Otras rutas */}
         </Routes>
       </Router>
