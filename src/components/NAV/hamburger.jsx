@@ -1,9 +1,27 @@
 import React from "react";
 
-function Hamburger() {
+function Hamburger({cartCount}) {
+
   const buttonStyle = {
     outline: "none",
     boxShadow: "none",
+    position: "relative",
+  };
+
+  const cartCountStyle = {
+    position: "absolute",
+    top: "3px",
+    right: "5px",
+    backgroundColor: "white",
+    border: "2px solid white",
+    color: "Green",
+    borderRadius: "50%",
+    width: "15px",
+    height: "15px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontSize: "9px",
   };
 
   return (
@@ -31,6 +49,11 @@ function Hamburger() {
               d="M4 9h8a1 1 0 0 0 0-2H4a1 1 0 0 0 0 2zm0 4h8a1 1 0 0 0 0-2H4a1 1 0 0 0 0 2zm0-8a1 1 0 0 1-1-1 1 1 0 0 1 1-1h8a1 1 0 0 1 1 1 1 1 0 0 1-1 1H4z"
             />
           </svg>
+          {cartCount > 0 && (
+            <span className="cart-count" style={cartCountStyle}>
+              {cartCount}
+            </span>
+          )}
       </button>
   );
 }

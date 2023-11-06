@@ -12,14 +12,34 @@ import Hamburger from "../components/NAV/hamburger";
 import IndexLiSM from "../components/NAV/IndexLiSM";
 
 
-function Home ({scrollToSection}){
+function Home (){
     const [cartCount, setCartCount] = useState(0);
 
     const handleAddToCart = () => {
         setCartCount(cartCount + 1);
     };
 
-    
+    const cartIconContainerStyle = {
+        position: "relative",
+        display: "inline-block",
+    };
+
+    const cartCountStyle = {
+        position: "absolute",
+        top: "3px",
+        right: "5px",
+        backgroundColor: "white",
+        border: "2px solid white",
+        color: "Green",
+        borderRadius: "50%",
+        width: "15px",
+        height: "15px",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        fontSize: "9px",
+    };
+       
     return (
         <div>
             <div 
@@ -36,14 +56,20 @@ function Home ({scrollToSection}){
 
                     <Search/> 
 
-                    <Hamburger />
+                    <Hamburger cartCount={cartCount} />
 
                     <nav className="collapse navbar-collapse justify-content-end" id="navbarNav">
                         <ul className="navbar-nav">
                             <li className="nav-item d-none d-sm-block">
-                                <a className="nav-link text-white " href="/cart"> <i className ="fas fa-shopping-cart fa-lg me-2" ></i>
-                                {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-                                </a>
+                                <div style={cartIconContainerStyle}>
+                                    <a className="nav-link text-white " href="/cart"> <i className ="fas fa-shopping-cart fa-lg me-2" ></i>
+                                    {cartCount > 0 && 
+                                        <span className="cart-count" style={cartCountStyle}>
+                                            {cartCount}
+                                        </span>}
+                                    </a>
+                                </div>
+
                             </li>
                             <li className="nav-item dropdown d-none d-sm-block">
                                 <a className="nav-link dropdown-toggle text-white" href="/home" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -58,9 +84,7 @@ function Home ({scrollToSection}){
                                 </div>
                             </li>
 
-                            <IndexLiSM href="/cart" text="Tu carrito">
-                                {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-                            </IndexLiSM>
+                            <IndexLiSM href="/cart" text="Tu carrito" />
                             <hr className="d-block d-sm-none"/>
                             <IndexLiSM href="/home" text="Historial de compras"/>
                             <IndexLiSM href="/home" text="Configuración"/>
