@@ -8,7 +8,7 @@ function ProductSmall(props) {
     };
 
     return (
-        <div className="col-lg-4 col-md-4 " style={{width: "300px"}}>
+        <div className="col-lg-4 col-md-4 mb-3" style={{width: "300px"}}>
             <div className="card ">
                 <img 
                     className="img-fluid rounded"
