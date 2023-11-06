@@ -3,8 +3,19 @@ import CustomInput from "../components/form/CustomInput";
 import ButtonClose from "../components/form/buttonClose";
 import TitleForm from "../components/form/TitleForm";
 import ButtonWhiteGreen from "../components/form/ButtonWhiteGreen";
+import { validateLogup } from "../utils/functions"; 
+import { useNavigate } from 'react-router-dom';
 
 function Logup() {
+        const navigate = useNavigate();    
+        const handleSubmit = (event) => {
+        event.preventDefault(); 
+        
+        if (validateLogup()) { 
+            navigate('/')
+        }
+    };
+    
     return (
         <div className=" d-flex justify-content-center align-items-center bg-secondary-subtle vh-100">
             <main className="bg-light rounded border-0">
@@ -16,7 +27,7 @@ function Logup() {
                         text="Registrarse en EcoTracker"
                     />
 
-                    <form id="logupForm" onsubmit="return validateLogup()">
+                    <form onSubmit={handleSubmit}>
                         <div className="fw-medium pb-2">
                                 <label 
                                     htmlFor="name" 
@@ -103,9 +114,8 @@ function Logup() {
                         
                         <div className="py-2">
                                 <ButtonWhiteGreen 
-                                    type="button" 
+                                    type="submit" 
                                     text="Registrarse" 
-                                    onclick="validateLogup()"
                                 />
                         </div>
                         

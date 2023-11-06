@@ -4,10 +4,22 @@ import ButtonClose from "../components/form/buttonClose";
 import TitleForm from "../components/form/TitleForm";
 import ButtonGreen from "../components/form/ButtonGreen";
 import ButtonWhite from "../components/form/ButtonWhite";
+import { validateLogin } from "../utils/functions"; 
+import { useNavigate } from 'react-router-dom';
+
 
 function Login() {
-    return (
+        const navigate = useNavigate();
+        
+        const handleSubmit = (event) => {
+        event.preventDefault(); 
+                
+        if (validateLogin()) { 
+            navigate('/')
+            }
+        };
 
+    return (
         <div className="d-flex justify-content-center align-items-center bg-secondary-subtle vh-100">
             <main className="bg-light rounded border-0">
                 <div className="border-opacity-50 shadow-lg rounded px-5 py-4">
@@ -18,7 +30,7 @@ function Login() {
                         text="Iniciar Sesión en EcoTracker"
                     />
             
-                    <form id="loginForm" onsubmit="return validateLogin()">
+                    <form onSubmit={handleSubmit}>
                         <div className="fw-medium pb-2">
                             <label 
                                 htmlFor="email" 
@@ -70,7 +82,6 @@ function Login() {
                             <ButtonGreen 
                                 type="submit" 
                                 text="Iniciar sesión"
-                                onclick="validateLogin()"
                             />
                         </div>
                     </form>

@@ -3,7 +3,7 @@ import React from "react";
 function ButtonClose(props) {
     return (
         <a 
-            href="/index" 
+            href="/" 
             className="d-flex justify-content-end">
             <button 
                 type="button" 

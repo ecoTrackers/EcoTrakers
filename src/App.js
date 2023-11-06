@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Index from './pages/index';
@@ -11,7 +12,7 @@ function App() {
   return (
       <Router>
         <Routes>
-          <Route path="/index" element={<Index />} />
+          <Route path="/" element={<Index />} />
           <Route path="/login" element={<Login />} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
           <Route path="/logup" element={<Logup />} />
