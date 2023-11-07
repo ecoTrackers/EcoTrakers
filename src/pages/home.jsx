@@ -88,7 +88,7 @@ function Home({onAddToCart}) {
                                 <div className="dropdown-menu border-success-subtle border-3" aria-labelledby="navbarDropdown"  style={{ left: 'auto', right: 0 }}>
                                     <a className="dropdown-header text-decoration-none fs-4 fw-semibold" href="/home">Perfil</a>
                                     <a className="dropdown-item fw-light fs-6" href="/home">Historial de compras</a>
-                                    <a className="dropdown-item fw-light fs-6" href="/home">Configuración</a>
+                                    <a className="dropdown-item fw-light fs-6" href="/inventario">Inventario</a>
                                     <div className="dropdown-divider"></div>
                                     <a className="dropdown-item fw-light fs-6" href="/">Cerrar sesión</a>
                                 </div>
@@ -97,7 +97,7 @@ function Home({onAddToCart}) {
                             <IndexLiSM href="/cart" text="Tu carrito" />
                             <hr className="d-block d-sm-none"/>
                             <IndexLiSM href="/home" text="Historial de compras"/>
-                            <IndexLiSM href="/home" text="Configuración"/>
+                            <IndexLiSM href="/inventario" text="Inventario"/>
                             <hr className="d-block d-sm-none"/>
                             <IndexLiSM href="/" text="Cerrar sesión"/>
                         </ul>

@@ -9,6 +9,7 @@ import ForgotPassword from './pages/forgotPassword';
 import Logup from "./pages/logup";
 import Home from "./pages/home";
 import ShoppingCart from "./pages/ShoppingCart";
+import Inventario from "./pages/inventario";
 
 function App() {
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
@@ -42,6 +43,8 @@ function App() {
                 <ShoppingCart 
                   productosSeleccionados={productosSeleccionados} 
                   setProductosSeleccionados={setProductosSeleccionados} />} />
+            
+            <Route path="/inventario" element={<Inventario />} />
             {/* Otras rutas */}
           </Routes>
         </Router>
