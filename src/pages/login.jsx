@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CustomInput from "../components/form/CustomInput";
 import ButtonClose from "../components/form/buttonClose";
 import TitleForm from "../components/form/TitleForm";
@@ -10,14 +10,47 @@ import { useNavigate } from 'react-router-dom';
 
 function Login() {
         const navigate = useNavigate();
+
+        const [formData, setFormData] = useState({
+            email: "",
+            password: "",
+          });
         
-        const handleSubmit = (event) => {
-        event.preventDefault(); 
+          const handleSubmit = async (event) => {
+            event.preventDefault();
+        
+            if (validateLogin(formData)) {
+              try {
                 
-        if (validateLogin()) { 
-            navigate('/home')
-        }
-    };
+                const response = await fetch("http://localhost:3000 ", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify(formData), 
+                });
+        
+                if (response.ok) {
+                  
+                  navigate("/home");
+                } else {
+                  
+                  alert("Inicio de sesión fallido. Verifica tus credenciales.");
+                }
+              } catch (error) {
+                console.error("Error en la solicitud:", error);
+               
+              }
+            }
+          };
+        
+          const handleInputChange = (event) => {
+            const { name, value } = event.target;
+            setFormData({
+              ...formData,
+              [name]: value,
+            });
+          };
 
     return (
         <div className="d-flex justify-content-center align-items-center bg-secondary-subtle vh-100">
@@ -42,6 +75,8 @@ function Login() {
                                 name="email" 
                                 id="email" 
                                 placeholder="ejemplo@correo.com"
+                                value={formData.email}
+                                onChange={handleInputChange} 
                             />
                         </div> 
                         <div className="fw-medium pb-2">
@@ -60,7 +95,9 @@ function Login() {
                                 <CustomInput 
                                     type="password" 
                                     id="password" 
-                                    placeholder="********" 
+                                    placeholder="********"
+                                    value={formData.password}
+                                    onChange={handleInputChange} 
                                 />
                             </div>
                         </div>
