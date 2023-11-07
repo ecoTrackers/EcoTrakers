@@ -9,7 +9,6 @@ function ProductSmall(props) {
         props.onAddToCart();
     };
 
-
     const imageStyle = {
         maxWidth: "100%",
         height: "200px"

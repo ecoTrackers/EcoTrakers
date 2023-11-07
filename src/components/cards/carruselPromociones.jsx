@@ -1,8 +1,48 @@
-import React from "react";
+import React, {useState, useEffect } from "react";
 import ProductSmall from "./productSmall";
 
 function CarruselPromociones({onAddToCart}) {
 
+    const productos = [
+        { num: "7", name: "prueba1", cost: "79.999" },
+        { num: "5", name: "prueba5", cost: "19.999" },
+        { num: "1", name: "prueba6", cost: "29.999" },
+        { num: "3", name: "prueba4", cost: "39.999" },
+        { num: "8", name: "prueba1", cost: "89.999" },
+        { num: "5", name: "prueba5", cost: "19.999" },
+        { num: "1", name: "prueba6", cost: "59.999" },
+        { num: "8", name: "prueba4", cost: "49.999" },
+        { num: "4", name: "prueba3", cost: "69.999" }
+      ];
+    
+    const firstBlock = productos.slice(0, 3);
+    const secondBlock = productos.slice(3, 6);
+    const thirdBlock = productos.slice(6, 9);
+      
+    const [productosSeleccionados, setProductosSeleccionados] = useState([]);
+
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem('productosSeleccionados'));
+        if (storedProducts) {
+          setProductosSeleccionados(storedProducts);
+        }
+    }, [setProductosSeleccionados]);
+    
+    const [cartCount, setCartCount] = useState(0);
+
+    const handleAddToCart = (product) => {
+        setCartCount(cartCount + 1);
+
+        const productKey = `${product.num}_${Date.now()}`;
+        const updatedProductosSeleccionados = [...productosSeleccionados, { ...product, id: productKey }];
+        setProductosSeleccionados(updatedProductosSeleccionados);
+
+        localStorage.setItem("productosSeleccionados", JSON.stringify(updatedProductosSeleccionados));
+
+        onAddToCart(product);
+    };
+
+    
     return (
         <div id="carouselpromociones" className="carousel slide " data-ride="carousel">
                 
@@ -17,67 +57,43 @@ function CarruselPromociones({onAddToCart}) {
 
                 <div className="carousel-item active px-5">
                     <div className="d-flex flex-wrap justify-content-around">                    
-                        <ProductSmall
-                        num="1"
-                        name="prueba1"
-                        cost="$49.999"
-                        onAddToCart={onAddToCart}/>
-                        <ProductSmall
-                        num="2"
-                        name="prueba3"
-                        cost="$59.999"
-                        onAddToCart={onAddToCart}/>
-                        <ProductSmall
-                        num="3"
-                        name="prueba3"
-                        cost="$60.999"
-                        onAddToCart={onAddToCart}/>
+                        {firstBlock.map((product, index) => (
+                            <ProductSmall
+                                key={product.id}
+                                num={product.num}
+                                name={product.name}
+                                cost={`$ ${product.cost}`}
+                                onAddToCart={() => handleAddToCart(product)}
+                            />
+                        ))}
                     </div>
                 </div>
                 
                 <div className="carousel-item px-5">
-                    <div className="d-flex flex-wrap justify-content-around"> 
-                        <ProductSmall
-                        num="4"
-                        name="prueba4"
-                        cost="$49.999"
-                        onAddToCart={onAddToCart}/>
-
-                        <ProductSmall
-                        num="5"
-                        name="prueba5"
-                        cost="$59.999"
-                        onAddToCart={onAddToCart}/>
-
-                        <ProductSmall
-                        num="6"
-                        name="prueba6"
-                        cost="$60.999"
-                        onAddToCart={onAddToCart}/>
-                        
+                    <div className="d-flex flex-wrap justify-content-around">                    
+                        {secondBlock.map((product, index) => (
+                            <ProductSmall
+                                key={product.id}
+                                num={product.num}
+                                name={product.name}
+                                cost={`$ ${product.cost}`}
+                                onAddToCart={() => handleAddToCart(product)}
+                            />
+                        ))}
                     </div>
                 </div>
-
+                
                 <div className="carousel-item px-5">
-                    <div className="d-flex flex-wrap justify-content-around"> 
-                        <ProductSmall
-                        num="2"
-                        name="prueba2"
-                        cost="$49.999"
-                        onAddToCart={onAddToCart}/>
-
-                        <ProductSmall
-                        num="4"
-                        name="prueba4"
-                        cost="$59.999"
-                        onAddToCart={onAddToCart}/>
-
-                        <ProductSmall
-                        num="1"
-                        name="prueba1"
-                        cost="$60.999"
-                        onAddToCart={onAddToCart}/>                  
-                        
+                    <div className="d-flex flex-wrap justify-content-around">                    
+                        {thirdBlock.map((product, index) => (
+                            <ProductSmall
+                                key={product.id}
+                                num={product.num}
+                                name={product.name}
+                                cost={`$ ${product.cost}`}
+                                onAddToCart={() => handleAddToCart(product)}
+                            />
+                        ))}
                     </div>
                 </div>
 

@@ -1,4 +1,4 @@
-import React, { useState }  from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../components/footer/footer";
 import CarruselVendidos from "../components/cards/carruselVendidos";
 import ListGroupNuevos from "../components/cards/listGroupNuevos";
@@ -12,12 +12,21 @@ import Hamburger from "../components/NAV/hamburger";
 import IndexLiSM from "../components/NAV/IndexLiSM";
 
 
-function Home (){
+function Home({onAddToCart}) {
+
     const [cartCount, setCartCount] = useState(0);
+    
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem('productosSeleccionados'));
+        if (storedProducts) {
+          setCartCount(storedProducts.length);
+        }
+    }, []);
 
     const handleAddToCart = () => {
         setCartCount(cartCount + 1);
     };
+    
 
     const cartIconContainerStyle = {
         position: "relative",
@@ -38,6 +47,7 @@ function Home (){
         alignItems: "center",
         justifyContent: "center",
         fontSize: "9px",
+        fontWeight: "bold",
     };
        
     return (
@@ -128,7 +138,7 @@ function Home (){
                         Aprovecha esta oferta especial y ahorra en tu compra.</p>
                     </div>
 
-                    <CarruselPromociones onAddToCart={handleAddToCart} />   
+                    <CarruselPromociones onAddToCart={handleAddToCart}/>
 
                 </section>
 
@@ -137,7 +147,7 @@ function Home (){
                         <h2>Lo ultimo que viste</h2>
                     </div>
 
-                    <CarruselUltimo onAddToCart={handleAddToCart} />
+                    <CarruselUltimo onAddToCart={handleAddToCart}/>
 
                 </section>
                 

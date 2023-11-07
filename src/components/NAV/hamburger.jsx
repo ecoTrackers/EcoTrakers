@@ -22,6 +22,7 @@ function Hamburger({cartCount}) {
     alignItems: "center",
     justifyContent: "center",
     fontSize: "9px",
+    fontWeight: "bold",
   };
 
   return (

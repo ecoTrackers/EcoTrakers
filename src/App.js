@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './App.css';
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,18 +11,41 @@ import Home from "./pages/home";
 import ShoppingCart from "./pages/ShoppingCart";
 
 function App() {
+  const [productosSeleccionados, setProductosSeleccionados] = useState([]);
+  
+  const [cartCount, setCartCount] = useState(0);
+
+  const handleAddToCart = (product) => {
+    setCartCount(cartCount + 1);
+    setProductosSeleccionados([...productosSeleccionados, product]);
+  };
+
   return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/forgotPassword" element={<ForgotPassword />} />
-          <Route path="/logup" element={<Logup />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/Cart" element={<ShoppingCart />} />
-          {/* Otras rutas */}
-        </Routes>
-      </Router>
+
+        <Router>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/logup" element={<Logup />} />
+            <Route
+              path="/home"
+              element={
+                <Home 
+                  cartCount={cartCount} 
+                  setCartCount={setCartCount}
+                  onAddToCart={handleAddToCart} />}
+            />
+            <Route 
+              path="/cart" 
+              element={
+                <ShoppingCart 
+                  productosSeleccionados={productosSeleccionados} 
+                  setProductosSeleccionados={setProductosSeleccionados} />} />
+            {/* Otras rutas */}
+          </Routes>
+        </Router>
+      
   );
 }
 
