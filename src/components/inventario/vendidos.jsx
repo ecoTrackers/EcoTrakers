@@ -1,14 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductTable from "./productTable";
 
 function Vendidos() {
-    const [productosVendidos, setProductosVendidos] = useState([
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "5", name: "prueba5", cost: 19999 }
-    ]);
+    const [productosVendidos, setProductosVendidos] = useState([]);
+
+    const localKey = "productosVendidos";
+
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem(localKey));
+        if (storedProducts) {
+            setProductosVendidos(storedProducts);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem(localKey, JSON.stringify(productosVendidos));
+    }, [productosVendidos]);
+
 
     const handleInputChange = (e, index, field) => {
         const updatedProductos = [...productosVendidos];
@@ -32,7 +40,7 @@ function Vendidos() {
     };
 
     return (
-        <section id="Vendidos" className="container my-4 pt-4">
+        <section id="vendidos" className="container my-4 pt-4">
             <div className="text-center  pb-3">
                 <h2>Más vendidos</h2>
             </div>

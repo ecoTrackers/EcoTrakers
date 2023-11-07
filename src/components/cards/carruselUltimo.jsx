@@ -3,15 +3,14 @@ import ProductSmall from "./productSmall";
 
 function CarruselUltimo({onAddToCart}) {
 
-    const productos = [
-        { num: "1", name: "prueba1", cost: 49999 },
-        { num: "2", name: "prueba1", cost: 59999 },
-        { num: "3", name: "prueba5", cost: 49999 },
+    const [productos, setProductos] = useState([]);
 
-        { num: "4", name: "prueba6", cost: 49999 },
-        { num: "5", name: "prueba4", cost: 59999 },
-        { num: "6", name: "prueba3", cost: 49999 }
-      ];
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem("productosLoUltimo"));
+        if (storedProducts) {
+          setProductos(storedProducts);
+        }
+      }, []);
 
    const [productosSeleccionados, setProductosSeleccionados] = useState([]);
 

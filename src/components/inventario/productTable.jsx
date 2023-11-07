@@ -2,7 +2,7 @@ import React from "react";
 
 function ProductTable({ products, onInputChange, onToggleEditing, onGuardarProducto }) {
   return (
-    <div className="table-responsive">
+    <div className="table-responsive" style={{ maxHeight: '360px', minHeight: '360px', overflowY: 'auto' }}>
       <table className="table table-hover table-sm table-bordered">
         <thead className="table-light">
           <tr>

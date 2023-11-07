@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductTable from "./productTable";
 
 function Compras() {
-    const [productosCompras, setProductosCompras] = useState([
-        { num: "7", name: "prueba1", cost: 79999 }
-    ]);
+    const [productosCompras, setProductosCompras] = useState([]);
+    const localKey = "productosCompras";
+
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem(localKey));
+        if (storedProducts) {
+            setProductosCompras(storedProducts);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem(localKey, JSON.stringify(productosCompras));
+    }, [productosCompras]);
 
     const handleInputChange = (e, index, field) => {
         const updatedProductos = [...productosCompras];
@@ -28,7 +38,7 @@ function Compras() {
     };
 
     return (
-        <section id="Compras" className="container my-4 pt-4">
+        <section id="compras" className="container my-4 pt-4">
             <div className="text-center  pb-3">
                 <h2>Según tus comprar</h2>
             </div>

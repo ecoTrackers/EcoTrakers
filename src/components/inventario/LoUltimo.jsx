@@ -1,12 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductTable from "./productTable";
 
 function LoUltimo() {
-    const [productosLoUltimo, setProductosLoUltimo] = useState([
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "6", name: "prueba1", cost: 79999 },
-        { num: "5", name: "prueba5", cost: 19999 }
-    ]);
+    const [productosLoUltimo, setProductosLoUltimo] = useState([]);
+    const localKey = "productosLoUltimo";
+
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem(localKey));
+        if (storedProducts) {
+            setProductosLoUltimo(storedProducts);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem(localKey, JSON.stringify(productosLoUltimo));
+    }, [productosLoUltimo]);
 
     const handleInputChange = (e, index, field) => {
         const updatedProductos = [...productosLoUltimo];
@@ -30,7 +38,7 @@ function LoUltimo() {
     };
 
     return (
-        <section id="LoUltimo" className="container my-4 pt-4">
+        <section id="loUltimo" className="container my-4 pt-4">
             <div className="text-center  pb-3">
                 <h2>Lo último que viste</h2>
             </div>

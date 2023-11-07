@@ -23,10 +23,10 @@ function Inventario() {
                 <header className="navbar navbar-expand-sm d-flex justify-content-between align-items-center">
                     <h1 className="text-sm-start m-4 text-white fw-bold fs-1">Eco Trackers</h1>
 
-                    <nav className="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <nav className="navbar justify-content-end">
                         <ul className="navbar-nav">
-                            <li className="nav-item dropdown d-none d-sm-block">
-                                <a className="nav-link " href="/home" >
+                            <li className="nav-item  ">
+                                <a className="nav-link" href="/home" >
                                     <i className="fas fa-sign-out fa-lg me-2 text-white"></i>
                                 </a>
                             </li>

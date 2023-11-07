@@ -3,18 +3,14 @@ import ProductSmall from "./productSmall";
 
 function CarruselNuevos({onAddToCart}) {
 
-    const productos = [
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "5", name: "prueba5", cost: 19999 },
-        { num: "1", name: "prueba6", cost: 29999 },
-        { num: "3", name: "prueba4", cost: 39999 },
-        { num: "8", name: "prueba1", cost: 89999 },
-        { num: "5", name: "prueba5", cost: 19999 },
-        { num: "5", name: "prueba5", cost: 19999 },
-        { num: "1", name: "prueba6", cost: 59999 },
-        { num: "8", name: "prueba4", cost: 49999 },
-        { num: "4", name: "prueba3", cost: 69999 }
-      ];
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem("productosNuevos"));
+        if (storedProducts) {
+          setProductos(storedProducts);
+        }
+      }, []);
     
     const firstBlock = productos.slice(0, 2);
     const secondBlock = productos.slice(2, 4);

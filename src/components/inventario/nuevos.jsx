@@ -1,13 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductTable from "./productTable";
 
 function Nuevos() {
-    const [productosNuevos, setProductosNuevos] = useState([
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "5", name: "prueba5", cost: 19999 }
-    ]);
+    const [productosNuevos, setProductosNuevos] = useState([]);
+    const localKey = "productosNuevos";
+
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem(localKey));
+        if (storedProducts) {
+            setProductosNuevos(storedProducts);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem(localKey, JSON.stringify(productosNuevos));
+    }, [productosNuevos]);
 
     const handleInputChange = (e, index, field) => {
         const updatedProductos = [...productosNuevos];
@@ -31,7 +38,7 @@ function Nuevos() {
     };
 
     return (
-        <section id="Nuevos" className="container my-4 pt-4">
+        <section id="nuevos" className="container my-4 pt-4">
             <div className="text-center  pb-3">
                 <h2>Nuevos productos</h2>
             </div>

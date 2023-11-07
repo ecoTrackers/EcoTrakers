@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import './App.css';
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,8 +10,14 @@ import Logup from "./pages/logup";
 import Home from "./pages/home";
 import ShoppingCart from "./pages/ShoppingCart";
 import Inventario from "./pages/inventario";
+import initializeLocalStorage from "./utils/localStorageInitializer";
 
 function App() {
+
+  useEffect(() => {
+    initializeLocalStorage();
+  }, []);
+  
   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
   
   const [cartCount, setCartCount] = useState(0);

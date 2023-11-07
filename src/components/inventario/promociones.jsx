@@ -1,12 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProductTable from "./productTable";
 
 function Promociones() {
-    const [productosPromociones, setProductosPromociones] = useState([
-        { num: "7", name: "prueba1", cost: 79999 },
-        { num: "5", name: "prueba5", cost: 19999 }
-    ]);
+    const [productosPromociones, setProductosPromociones] = useState([]);
+    const localKey = "productosPromociones";
 
+    useEffect(() => {
+        const storedProducts = JSON.parse(localStorage.getItem(localKey));
+        if (storedProducts) {
+            setProductosPromociones(storedProducts);
+        }
+    }, []);
+
+    useEffect(() => {
+        localStorage.setItem(localKey, JSON.stringify(productosPromociones));
+    }, [productosPromociones]);
+
+    
     const handleInputChange = (e, index, field) => {
         const updatedProductos = [...productosPromociones];
         updatedProductos[index][field] = e.target.value;
@@ -28,8 +38,9 @@ function Promociones() {
         }
     };
 
+
     return (
-        <section id="Promociones" className="container my-4 pt-4">
+        <section id="Promociones" className="container mt-4 my-4 pt-5">
             <div className="text-center  pb-3">
                 <h2>Promoción Especial</h2>
             </div>
@@ -40,6 +51,7 @@ function Promociones() {
                 onToggleEditing={handleToggleEditing}
                 onGuardarProducto={handleGuardarProducto}
             />
+
         </section>
     );
 }
