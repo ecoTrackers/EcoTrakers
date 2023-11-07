@@ -11,9 +11,7 @@ function ForgotPassword() {
         
         const handleSubmit = (event) => {
         event.preventDefault(); 
-        console.log("pruebas")                
-        if (validateForgot()) { 
-            console.log("prueba")
+        if (validateForgot()) {     
             navigate('/')
        }
     };

@@ -5,7 +5,8 @@ function ButtonWhite(props) {
         <button 
             type={props.type}
             className="btn btn-outline-dark mw-100 rounded-pill border border-opacity-75" 
-            style={{width: "200%"}}>
+            style={{width: "200%"}}
+            onClick={props.onClick}>
             {props.text}
         </button>
         

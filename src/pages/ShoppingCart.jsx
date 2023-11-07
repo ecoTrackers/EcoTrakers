@@ -26,6 +26,30 @@ function ShoppingCart( { productosSeleccionados, setProductosSeleccionados } ) {
     localStorage.setItem('productosSeleccionados', JSON.stringify(updatedProducts));
   };
 
+  const realizarCompra = () => {
+    
+    const productosSeleccionadosParaCompra = productosSeleccionados; 
+    
+    fetch("http://localhost:5050/realizar_compra", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ productosSeleccionados: productosSeleccionadosParaCompra }),
+    })
+        .then((response) => {
+            if (response.ok) {
+                console.log("Productos comprados:");
+                alert("Compra realizada con éxito");
+                return response.json(); 
+            } else {
+                alert("Error al realizar la compra");
+            }
+        })
+        .catch((error) => {
+            console.error("Error de red al realizar la compra", error);
+        });
+    };
 
   return (
     <div className="container mt-5">
@@ -59,12 +83,10 @@ function ShoppingCart( { productosSeleccionados, setProductosSeleccionados } ) {
       
 
         <div className="d-flex justify-content-between align-items-center">
-
             
             <div className="me-3" style={{ flex: 1}}>
-                <ButtonWhite text="Realizar Pago" />
+                <ButtonWhite type="submit" text="Realizar Pago" onClick={() => realizarCompra()} />
             </div>
-            
             <div className="me-3" style={{ flex: 1}}>
                 <a href="/home">
                 <ButtonGreen text="Continuar Comprando" />
