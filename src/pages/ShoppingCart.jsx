@@ -25,50 +25,56 @@ function ShoppingCart({ productosSeleccionados, setProductosSeleccionados }) {
     localStorage.setItem('productosSeleccionados', JSON.stringify(updatedProducts));
   };
 
-  console.log(productosSeleccionados);
 
   return (
     <div className="container mt-5">
-      <h1 className="mb-4">Carrito de Compras - Eco Trackers</h1>
 
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Total</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {productosSeleccionados.map((product, index) => (
-            <tr key={product.id}>
-              <td className="w-25">{product.name}</td>
-              <td>${product.cost}</td>
-              <td>
-                <button className="btn btn-danger" onClick={() => handleRemoveProduct(product)}>
-                  Eliminar
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        <h1 className="mb-4">Carrito de Compras - Eco Trackers</h1>
 
-      <div className="text-right">
-        <h3>Total: ${getTotalPrice().toFixed(2)}</h3>
-
-        <div className="mt-3 d-flex justify-content-around" style={{ width: "30%" }}>
-          <div style={{ flex: 1, marginRight: "10px" }}>
-            <ButtonWhite text="Realizar Pago" />
-          </div>
-          <div style={{ flex: 1 }}>
-            <a href="/home">
-              <ButtonGreen text="Continuar Comprando" />
-            </a>
-          </div>
+        <div className="table-responsive mx-5 px-5" style={{ maxHeight: '350px', minHeight: '350px', overflowY: 'auto' }}>
+            <table className="table table-hover ">
+                <thead >
+                <tr>
+                    <th>Producto</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tbody className="table-group-divider">
+                {productosSeleccionados.map((product, index) => (
+                    <tr key={product.id}>
+                    <td className="w-25">{product.name}</td>
+                    <td>${product.cost}</td>
+                    <td>
+                        <button className="btn btn-danger" onClick={() => handleRemoveProduct(product)}>
+                        Eliminar
+                        </button>
+                    </td>
+                    </tr>
+                ))}
+                </tbody>
+            </table>
         </div>
-      </div>
+      
+
+        <div className="d-flex justify-content-between align-items-center">
+
+            
+            <div className="me-3" style={{ flex: 1}}>
+                <ButtonWhite text="Realizar Pago" />
+            </div>
+            
+            <div className="me-3" style={{ flex: 1}}>
+                <a href="/home">
+                <ButtonGreen text="Continuar Comprando" />
+                </a>
+            </div>
+            
+            <div className=" text-end" style={{ flex: 1 }}>
+                <h3>Total: ${getTotalPrice().toFixed(2)}</h3>
+            </div>
+
+        </div>
     </div>
   );
 }

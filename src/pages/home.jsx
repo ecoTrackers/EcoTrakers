@@ -113,7 +113,7 @@ function Home({onAddToCart}) {
                         text="Promociones"/>
                         <LinkSection 
                         href="#lo_ultimo"
-                        text="Lo ultimo que viste"/>
+                        text="Lo último que viste"/>
                         <LinkSection 
                         href="#compras"
                         text="Según tus comprar"/>
@@ -144,7 +144,7 @@ function Home({onAddToCart}) {
 
                 <section id="lo_ultimo" className="container my-4 pt-4">
                     <div className="text-center pb-3">
-                        <h2>Lo ultimo que viste</h2>
+                        <h2>Lo último que viste</h2>
                     </div>
 
                     <CarruselUltimo onAddToCart={handleAddToCart}/>
