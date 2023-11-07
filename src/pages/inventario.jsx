@@ -1,9 +1,14 @@
 import React from "react";
-import Footer from "../components/footer/footer";
 import LinkSection from "../components/cards/linkSection";
+import Promociones from "../components/inventario/promociones";
+import LoUltimo from "../components/inventario/LoUltimo";
+import Compras from "../components/inventario/compras";
+import Nuevos from "../components/inventario/nuevos";
+import Vendidos from "../components/inventario/vendidos";
+
 
 function Inventario() {
-       
+      
     return (
         <div>
             <div 
@@ -34,7 +39,7 @@ function Inventario() {
                         href="#Promociones"
                         text="Promociones"/>
                         <LinkSection 
-                        href="#lo_ultimo"
+                        href="#loUltimo"
                         text="Lo último que viste"/>
                         <LinkSection 
                         href="#compras"
@@ -45,47 +50,20 @@ function Inventario() {
                         <LinkSection 
                         href="#vendidos"
                         text="Más vendidos"/>
-                        <LinkSection 
-                        href="#contactanos"
-                        text="Contáctanos"/>
                     </div>
                 </section>
             </div>
 
             <div style={{ marginTop: "140px" }}>
-
-                <section id="Promociones" className="container bg-secondary bg-opacity-50 w-100 m-0 py-3" style={{ maxWidth: 'none'}}>
-                    <div className="text-center">
-                        <h2 className="text-white">Promoción Especial</h2>
-                    </div>
-                </section>
-                <section id="lo_ultimo" className="container my-4 pt-4">
-                    <div className="text-center pb-3">
-                        <h2>Lo último que viste</h2>
-                    </div>
-                </section>
                 
-                <section id="compras" className="container bg-secondary bg-opacity-50" style={{ maxWidth: 'none' }}>
-                    <div className="text-center">
-                        <h2 className="pt-3">Según tus compras </h2> 
-                    </div>
-                </section>
-
-                <section id="nuevos" className="container my-4 pt-4" >
-                    <div className="text-center pb-3">
-                        <h2>Nuevos Productos</h2>
-                    </div>   
-                </section>  
-
-                <section id="vendidos" className="container bg-warning bg-opacity-75 p-5 w-100" style={{ maxWidth: 'none' }}>
-                    <div className="text-center">
-                        <h2>Más Vendidos</h2>
-                    </div>    
-                </section>
+                <Promociones />
+                <LoUltimo />
+                <Compras />
+                <Nuevos />
+                <Vendidos />
+                
             </div>
-
-            <Footer />
-            
+           
         </div>
     )
 }
