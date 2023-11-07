@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import ButtonGreen from '../components/form/ButtonGreen';
 import ButtonWhite from '../components/form/ButtonWhite';
 
-function ShoppingCart({ productosSeleccionados, setProductosSeleccionados }) {
-  
+function ShoppingCart( { productosSeleccionados, setProductosSeleccionados } ) {
+    
+    
   useEffect(() => {
     const storedProducts = JSON.parse(localStorage.getItem('productosSeleccionados'));
     if (storedProducts) {
@@ -31,7 +32,7 @@ function ShoppingCart({ productosSeleccionados, setProductosSeleccionados }) {
 
         <h1 className="mb-4">Carrito de Compras - Eco Trackers</h1>
 
-        <div className="table-responsive mx-5 px-5" style={{ maxHeight: '350px', minHeight: '350px', overflowY: 'auto' }}>
+        <div className="table-responsive mx-5 px-5" style={{ maxHeight: '380px', minHeight: '380px', overflowY: 'auto' }}>
             <table className="table table-hover ">
                 <thead >
                 <tr>
@@ -44,7 +45,7 @@ function ShoppingCart({ productosSeleccionados, setProductosSeleccionados }) {
                 {productosSeleccionados.map((product, index) => (
                     <tr key={product.id}>
                     <td className="w-25">{product.name}</td>
-                    <td>${product.cost}</td>
+                    <td>${product.cost.toLocaleString()}</td>
                     <td>
                         <button className="btn btn-danger" onClick={() => handleRemoveProduct(product)}>
                         Eliminar
@@ -71,7 +72,7 @@ function ShoppingCart({ productosSeleccionados, setProductosSeleccionados }) {
             </div>
             
             <div className=" text-end" style={{ flex: 1 }}>
-                <h3>Total: ${getTotalPrice().toFixed(2)}</h3>
+                <h3>Total: ${getTotalPrice().toLocaleString()}</h3>
             </div>
 
         </div>

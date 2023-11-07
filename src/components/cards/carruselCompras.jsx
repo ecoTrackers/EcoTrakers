@@ -5,11 +5,11 @@ import ProductLarge from "./productLarge";
 function CarruselCompras({onAddToCart}) {
 
     const productos = [
-        { num: "7", name: "prueba1", cost: "79.999" },
-        { num: "5", name: "prueba5", cost: "19.999" },
-        { num: "1", name: "prueba6", cost: "29.999" },
-        { num: "8", name: "prueba1", cost: "89.999" },
-        { num: "4", name: "prueba3", cost: "69.999" }
+        { num: "7", name: "prueba1", cost: 79999 },
+        { num: "5", name: "prueba5", cost: 19999 },
+        { num: "1", name: "prueba6", cost: 29999 },
+        { num: "8", name: "prueba1", cost: 89999 },
+        { num: "4", name: "prueba3", cost: 69999 }
       ];
     
     const firstBlock = productos.slice(0, 1);
@@ -48,7 +48,7 @@ function CarruselCompras({onAddToCart}) {
                         key={product.id}
                         num={product.num}
                         name={product.name}
-                        cost={`$ ${product.cost}`}
+                        cost={`$ ${product.cost.toLocaleString()}`}
                         onAddToCart={() => handleAddToCart(product)}
                     />
                 ))}
@@ -60,7 +60,7 @@ function CarruselCompras({onAddToCart}) {
                             key={product.id}
                             num={product.num}
                             name={product.name}
-                            cost={`$ ${product.cost}`}
+                            cost={`$ ${product.cost.toLocaleString()}`}
                             onAddToCart={() => handleAddToCart(product)}
                         />
                     ))}
@@ -72,7 +72,7 @@ function CarruselCompras({onAddToCart}) {
                             key={product.id}
                             num={product.num}
                             name={product.name}
-                            cost={`$ ${product.cost}`}
+                            cost={`$ ${product.cost.toLocaleString()}`}
                             onAddToCart={() => handleAddToCart(product)}
                         />
                     ))}

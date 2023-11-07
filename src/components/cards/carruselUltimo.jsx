@@ -4,16 +4,16 @@ import ProductSmall from "./productSmall";
 function CarruselUltimo({onAddToCart}) {
 
     const productos = [
-        { num: "1", name: "prueba1", cost: "49.999" },
-        { num: "2", name: "prueba1", cost: "59.999" },
-        { num: "3", name: "prueba5", cost: "49.999" },
+        { num: "1", name: "prueba1", cost: 49999 },
+        { num: "2", name: "prueba1", cost: 59999 },
+        { num: "3", name: "prueba5", cost: 49999 },
 
-        { num: "4", name: "prueba6", cost: "49.999" },
-        { num: "5", name: "prueba4", cost: "59.999" },
-        { num: "6", name: "prueba3", cost: "49.999" }
+        { num: "4", name: "prueba6", cost: 49999 },
+        { num: "5", name: "prueba4", cost: 59999 },
+        { num: "6", name: "prueba3", cost: 49999 }
       ];
 
-    const [productosSeleccionados, setProductosSeleccionados] = useState([]);
+   const [productosSeleccionados, setProductosSeleccionados] = useState([]);
 
     useEffect(() => {
         const storedProducts = JSON.parse(localStorage.getItem('productosSeleccionados'));
@@ -35,20 +35,20 @@ function CarruselUltimo({onAddToCart}) {
         onAddToCart(product);
     };
 
-    return (
 
-    <div className="row d-flex justify-content-between px-3">
-                            
-        {productos.map((product, index) => (
-            <ProductSmall
-                key={product.id}
-                num={product.num}
-                name={product.name}
-                cost={`$ ${product.cost}`}
-                onAddToCart={() => handleAddToCart(product)}
-            />
-        ))}
-    </div>
+    return (
+        <div className="row d-flex justify-content-between px-3">
+                                
+            {productos.map((product, index) => (
+                <ProductSmall
+                    key={product.id}
+                    num={product.num}
+                    name={product.name}
+                    cost={`$ ${product.cost.toLocaleString()}`}
+                    onAddToCart={() => handleAddToCart(product)}
+                />
+            ))}
+        </div>
     
     );
 }
